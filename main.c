@@ -5,19 +5,20 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 Student students[100];
 int studentCount = 0;
-
+int quantity=-1;
 int main(int argc, char *argv[]) {
     int choice;
     int choiceAdmin;
     int choicestudent;
     int n = 0;
-    int maxSize = 100;
+
 
     do{
        startTheProgram();
        scanf("%d",&choice);
     switch(choice){
         case 1:
+            system("cls");
             do{
                 menuAdmin();
                 scanf("%d",&choiceAdmin);
@@ -25,6 +26,7 @@ int main(int argc, char *argv[]) {
 
 
                     case 1:
+                        system("cls");
                            do{
 
                               studentManagement();
@@ -32,25 +34,32 @@ int main(int argc, char *argv[]) {
                               scanf("%d",&choicestudent);
                              switch(choicestudent){
                                  case 1:
-                                    inputStudentInfo(students,&n,maxSize);
-                                    // addStudent(students, &n,maxSize);
+                                     system("cls");
+                                    addStudentInfo(students,&n);
                                    break;
                                  case 2:
+                                     system("cls");
                                       printStudents(students, n);
+//                                      enOrReturn();
                                    break;
                                  case 3:
-                                     //searchStudentById(students, n);
-
+                                     system("cls");
+                                     //searchStudentByName(students, n);
                                    break;
                                  case 4:
+                                     system("cls");
+                                     editStudent(students, n);
                                    break;
                                  case 5:
-                                     //deleteStudent(students,n);
+                                     system("cls");
+                                     deleteStudent(students,&n);
+                                   break;
+                                   case 0:
                                    break;
                                  default:
                                    invalidSelection();
                                   }
-                              }while(choiceAdmin !=0);
+                              }while(choicestudent !=0 );
 
                       break;
                     case 2:
@@ -61,10 +70,13 @@ int main(int argc, char *argv[]) {
                       break;
                     case 5:
                       break;
+                      case 6:
+                          break;
+
                     default:
                       invalidSelection();
                 }
-            }while(choiceAdmin !=0);
+            }while(choiceAdmin !=6);
              break;
         case 2:
              break;
